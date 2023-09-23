@@ -1,0 +1,76 @@
+//Q.1 To fint the factorial of a number using recursive method.
+package vikas;
+import java.util.*;
+public class Vikas
+{
+   public static void main(String[] args) 
+    {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Enter a number :");
+        int n=sc.nextInt();
+        int fact=1;
+        fact=factorial(n);
+        System.out.println("The factorial of "+n+" is "+fact);
+    }
+   static int factorial(int n)
+   {
+       if(n==0)
+       {
+           return 1;
+       }
+       else
+       {
+          return(n*factorial(n-1)); 
+       }
+   }
+}
+
+
+
+
+//Q.2 To fint the factorial of a number using recursive method.
+package vikas;
+
+import java.util.*;
+import java.lang.*;
+
+public class Vikas {
+
+    public static void main(String[] args)
+    {
+        try
+        {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter a number :");
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            for (int i = 0; i < n; i++) 
+            {
+                System.out.print("Enter the " + i + "th element :");
+                arr[i] = sc.nextInt();
+            }
+            System.out.println("Your single matrix ");
+            for (int i : arr) 
+            {
+                System.out.print(i + " ");
+            }
+            int l = lowest(arr, n);
+            System.out.print("The lowest element :" + l);
+        }
+    }
+    catch (Exception e)
+    {
+            System.out.println(e);
+    }
+    static int lowest(int[] arr, int n) 
+    {
+        if (arr[n] >= arr[0]) {
+            return arr[n - 1];
+        } 
+        else
+        {
+            return lowest(arr, n - 1);
+        }
+    }
+}
+
