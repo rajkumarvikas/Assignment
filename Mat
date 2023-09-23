@@ -1,0 +1,42 @@
+package vikas;
+
+import java.util.*;
+
+public class Vikas {
+
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.print("Enter the number of elements: ");
+            int n = sc.nextInt();
+            int arr[] = new int[n];
+            for (int i = 0; i < n; i++) {
+                System.out.print("Enter the " + (i + 1) + "th element: ");
+                arr[i] = sc.nextInt();
+            }
+            System.out.println("Your single matrix:");
+            for (int i : arr) {
+                System.out.print(i + " ");
+            }
+            int l = lowest(arr, n - 1); // Start with n-1 as the index.
+            System.out.println("\nThe lowest element: " + l);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    static int lowest(int[] arr, int n) {
+        if (n == 0) {
+            return arr[0]; // Base case: When n reaches 0, return the first element.
+        }
+        
+        int prevLowest = lowest(arr, n - 1);
+        
+        // Compare the current element with the previous lowest.
+        if (arr[n] < prevLowest) {
+            return arr[n]; // If the current element is lower, return it.
+        } else {
+            return prevLowest; // Otherwise, return the previous lowest.
+        }
+    }
+}
